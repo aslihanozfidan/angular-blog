@@ -1,43 +1,19 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TransferState } from '../modules/transfer-state/transfer-state';
+import { Component } from '@angular/core';
 
-import { views } from './app-nav-views';
-import { MOBILE } from './services/constants';
+import { ApiService } from './shared';
+
+import '../style/app.scss';
 
 @Component({
-  selector: 'my-app',
-  styleUrls: ['main.scss', './app.component.scss'],
+  selector: 'my-app', // <my-app></my-app>
   templateUrl: './app.component.html',
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  showMonitor = (ENV === 'development' && !AOT &&
-    ['monitor', 'both'].includes(STORE_DEV_TOOLS) // set in constants.js file in project root
-  );
-  mobile = MOBILE;
-  sideNavMode = MOBILE ? 'over' : 'side';
-  views = views;
+export class AppComponent {
+  url = 'https://github.com/preboot/angular2-webpack';
+  title: string;
 
-  constructor(
-    private cache: TransferState,
-    public route: ActivatedRoute,
-    public router: Router
-  ) { }
-
-  ngOnInit() {
-    this.cache.set('cached', true);
-  }
-
-  activateEvent(event) {
-    if (ENV === 'development') {
-      console.log('Activate Event:', event);
-    }
-  }
-
-  deactivateEvent(event) {
-    if (ENV === 'development') {
-      console.log('Deactivate Event', event);
-    }
+  constructor(private api: ApiService) {
+    this.title = this.api.title;
   }
 }

@@ -1,113 +1,149 @@
-# Complete starter seed project for Angular 2
+# angular-webpack
 
-## Material Branch with Universal (Server-side rendering) support
+[![Dependency Status](https://david-dm.org/preboot/angular-webpack/status.svg)](https://david-dm.org/preboot/angular-webpack#info=dependencies) [![devDependency Status](https://david-dm.org/preboot/angular-webpack/dev-status.svg)](https://david-dm.org/preboot/angular-webpack#info=devDependencies)
+[![Join the chat at https://gitter.im/preboot/angular-webpack](https://badges.gitter.im/preboot/angular-webpack.svg)](https://gitter.im/preboot/angular-webpack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-> Featuring Material Design 2, Webpack 2 (and Webpack DLL plugin for faster dev builds), HMR (Hot Module Replacement), @ngrx for state management and optional server-side rendering with Universal.
+A complete, yet simple, starter for Angular v2+ using Webpack.
 
-###### You can use npm, but it's recommended to use yarn as it installs a lot faster and has other benefits https://yarnpkg.com/ . Make sure you are using yarn version 0.16.0 or newer (check with 'yarn --version')
+This seed repo serves as an Angular starter for anyone looking to get up and running with Angular and TypeScript fast. Using [Webpack](http://webpack.github.io/) for building our files and assisting with boilerplate. We're also using Protractor for our end-to-end story and Karma for our unit tests.
+* Best practices in file and application organization for [Angular](https://angular.io/).
+* Ready to go build system using [Webpack](https://webpack.github.io/docs/) for working with [TypeScript](http://www.typescriptlang.org/).
+* Testing Angular code with [Jasmine](http://jasmine.github.io/) and [Karma](http://karma-runner.github.io/).
+* Coverage with [Istanbul](https://github.com/gotwarlost/istanbul)
+* End-to-end Angular code using [Protractor](https://angular.github.io/protractor/).
+* Stylesheets with [SASS](http://sass-lang.com/) (not required, it supports regular css too).
+* Error reported with [TSLint](http://palantir.github.io/tslint/) and [Codelyzer](https://github.com/mgechev/codelyzer).
+* Documentation with [TypeDoc](http://typedoc.org/).
+
+>Warning: Make sure you're using the latest version of Node.js and NPM
+
+### Quick start
 
 ```bash
-git clone https://github.com/qdouble/angular-webpack2-starter.git
-cd angular-webpack2-starter
-yarn
-yarn start
+# clone our repo
+$ git clone https://github.com/preboot/angular-webpack.git my-app
+
+# change directory to your app
+$ cd my-app
+
+# install the dependencies with npm
+$ npm install
+
+# start the server
+$ npm start
+```
+go to [http://localhost:8080](http://localhost:8080) in your browser.
+
+# Table of Contents
+
+* [Getting Started](#getting-started)
+    * [Dependencies](#dependencies)
+    * [Installing](#installing)
+    * [Developing](#developing)
+    * [Testing](#testing)
+    * [Production](#production)
+    * [Documentation](#documentation)
+* [Frequently asked questions](#faq)
+* [TypeScript](#typescript)
+* [License](#license)
+
+# Getting Started
+
+## Dependencies
+
+What you need to run this app:
+* `node` and `npm` (Use [NVM](https://github.com/creationix/nvm))
+* Ensure you're running Node (`v6.x.x`+) and NPM (`3.x.x`+)
+
+## Installing
+
+* `fork` this repo
+* `clone` your fork
+* `npm install` to install all dependencies
+
+## Developing
+
+After you have installed all dependencies you can now start developing with:
+
+* `npm start`
+
+It will start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The application can be checked at `http://localhost:8080`.
+
+As an alternative, you can work using Hot Module Replacement (HMR):
+
+* `npm run start:hmr`
+
+And you are all set! You can now modify your components on the fly without having to reload the entire page.
+
+## Testing
+
+#### 1. Unit Tests
+
+* single run: `npm test`
+* live mode (TDD style): `npm run test-watch`
+
+#### 2. End-to-End Tests (aka. e2e, integration)
+
+* single run:
+  * in a tab, *if not already running!*: `npm start`
+  * in a new tab: `npm run webdriver-start`
+  * in another new tab: `npm run e2e`
+* interactive mode:
+  * instead of the last command above, you can run: `npm run e2e-live`
+  * when debugging or first writing test suites, you may find it helpful to try out Protractor commands without starting up the entire test suite. You can do this with the element explorer.
+  * you can learn more about [Protractor Interactive Mode here](https://github.com/angular/protractor/blob/master/docs/debugging.md#testing-out-protractor-interactively)
+
+## Production
+
+To build your application, run:
+
+* `npm run build`
+
+You can now go to `/dist` and deploy that to your server!
+
+## Documentation
+
+You can generate api docs (using [TypeDoc](http://typedoc.org/)) for your code with the following:
+
+* `npm run docs`
+
+# FAQ
+
+#### Do I need to add script / link tags into index.html ?
+
+No, Webpack will add all the needed Javascript bundles as script tags and all the CSS files as link tags. The advantage is that you don't need to modify the index.html every time you build your solution to update the hashes.
+
+#### How to include external angular libraries ?
+
+It's simple, just install the lib via npm and import it in your code when you need it. Don't forget that you need to configure some external libs in the [bootstrap](https://github.com/preboot/angular-webpack/blob/master/src/main.ts) of your application.
+
+#### How to include external css files such as bootstrap.css ?
+
+Just install the lib and import the css files in [vendor.ts](https://github.com/preboot/angular-webpack/blob/master/src/vendor.ts). For example this is how to do it with bootstrap:
+
+```sh
+npm install bootstrap@next --save
 ```
 
-### [Material Branch without Universal (Server-side rendering) support](https://github.com/qdouble/angular-webpack2-starter/tree/no-universal-support)
+And in [vendor.ts](https://github.com/preboot/angular-webpack/blob/master/src/vendor.ts) add the following:
 
-### [Bootstrap Branch](https://github.com/qdouble/angular-webpack2-starter/tree/bootstrap)
+```ts
+import 'bootstrap/dist/css/bootstrap.css';
+```
 
-### [Bootstrap and Universal Branch](https://github.com/qdouble/angular-webpack2-starter/tree/bootstrap-and-universal)
+# TypeScript
 
-### [Minimal Branch](https://github.com/qdouble/angular-webpack2-starter/tree/minimal)
+> To take full advantage of TypeScript with autocomplete you would have to use an editor with the correct TypeScript plugins.
 
-## Features
+## Use a TypeScript-aware editor
 
-* Angular 2
-  * Async loading
-  * Treeshaking
-  * AOT (Ahead of Time/ Offline) Compilation
-  * AOT safe SASS compilation
-* Webpack 2
-  * Webpack Dlls (Speeds up devServer builds)
-  * @ngTools AOT plugin
-* HMR (Hot Module Replacement)
-* TypeScript 2
-  * @types
-* Material Design 2
-* Universal (Server-side Rendering)
-* @ngrx
-  * store (RxJS powered state management for Angular2 apps, inspired by Redux)
-  * effects (Side effect model for @ngrx/store)
-  * router-store (Bindings to connect angular/router to ngrx/store)
-  * store-devtools (Developer Tools for @ngrx/store)
-  * store-log-monitor (Log Monitor for @ngrx/store-devtools and Angular 2)
-  * ngrx-store-logger (Advanced console logging for @ngrx/store applications, ported from redux-logger.)
-  * ngrx-store-freeze in dev mode (@ngrx/store meta reducer that prevents state from being mutated.)
-* Karma/Jasmine testing
-* Protractor for E2E testing
+We have good experience using these editors:
 
-## Project Goals
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Webstorm 11+](https://www.jetbrains.com/webstorm/download/)
+* [Atom](https://atom.io/) with [TypeScript plugin](https://atom.io/packages/atom-typescript)
+* [Sublime Text](http://www.sublimetext.com/3) with [Typescript-Sublime-Plugin](https://github.com/Microsoft/Typescript-Sublime-plugin#installation)
 
-* The main goal is to provide an environment where you can have great dev tools and create a production application without worrying about adding a bunch of stuff yourself.
-* The goal of your design should be so that you can easily copy and paste your app folder and your constants file into to a new update of this project and have it still work. Use constants and have proper separation to make upgrades easy. If you have any suggestions on areas where this starter can be designed to make updates more easy, file an issue.
+# License
 
-## Basic scripts
-
-Use `yarn start` for dev server. Default dev port is `3000`.
-
-Use `yarn run start:hmr` to run dev server in HMR mode.
-
-Use `yarn run build` for production build.
-
-Use `yarn run server:prod` for production server and production watch. Default production port is `8088`.
-
-Use `yarn run universal` to run production build in Universal. To run and build universal in AOT mode, use
-`yarn run universal:aot`. Default universal port is `8000`.
-
-Default ports and option to use proxy backend for dev server can be changed in `constants.js` file.
-
-To create AOT version, run `yarn run build:aot`. This will compile and build script.
-Then you can use `yarn run prodserver` to see to serve files.
-
-### Store Log Monitor / Store Logger
-
-In development mode, the store log monitor appears on the right hand of your screen. This allows
-you to view your stored state and manipulate your state history. By default, the monitor is NOT imported
-when you are in production mode. State history is also not saved in production mode.
-
-There is also an option to use store-logger which outputs to the console instead of your application view.
-To set your development mode store logging preference, go to the constant.js file and edit the `STORE_DEV_TOOLS` constant.
-Available options are `monitor | logger | both | none`
-
-### HMR (Hot Module Replacement)
-
-HMR mode allows you to update a particular module without reloading the entire application.
-The current state of your app is also stored in @ngrx/store allowing you to make updates to your
-code without losing your currently stored state.
-
-### AOT  Don'ts
-
-The following are some things that will make AOT compile fail.
-
-- Don’t use require statements for your templates or styles, use styleUrls and templateUrls, the angular2-template-loader plugin will change it to require at build time.
-- Don’t use default exports.
-- Don’t use form.controls.controlName, use form.get(‘controlName’)
-- Don’t use control.errors?.someError, use control.hasError(‘someError’)
-- Don’t use functions in your providers, routes or declarations, export a function and then reference that function name
-- Inputs, Outputs, View or Content Child(ren), Hostbindings, and any field you use from the template or annotate for Angular should be public
-
-### Testing
-
-For unit tests, use `yarn run test` for continuous testing in watch mode and use
-`yarn run test:once` for single test. To view code coverage after running test, open `coverage/html/index.html` in your browser.
-
-For e2e tests, use `yarn run e2e`. To run unit test and e2e test at the same time, use `yarn run ci`.
-
-### Wiki Links
-
-[Recommended Steps for merging this starter into existing project](https://github.com/qdouble/angular-webpack2-starter/wiki/Recommended-Steps-for-Merging-Starter-into-Existing-Project)
-
-### License
-
-[MIT](https://github.com/qdouble/angular-webpack2-starter/blob/master/LICENSE)
+[MIT](/LICENSE)

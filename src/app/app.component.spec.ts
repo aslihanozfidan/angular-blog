@@ -1,41 +1,24 @@
-/* tslint:disable: max-line-length */
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { provideRoutes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ReactiveFormsModule } from '@angular/forms';
 
-import { MaterialModule } from '@angular/material';
-
-import {
-  BrowserTransferStateModule
-} from '../modules/transfer-state/browser-transfer-state.module';
-
+import { ApiService } from './shared';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './features/dashboard.component';
-import { NotFound404Component } from './not-found404.component';
-import { routes } from './app.routing';
-import { StoreDevToolsModule } from './features/store-devtools.module';
 
-import 'rxjs/add/operator/takeUntil';
-
-describe('App Component', () => {
+describe('App', () => {
+  // provide our implementations or mocks to the dependency injector
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        BrowserTransferStateModule,
-        MaterialModule,
-        ReactiveFormsModule,
-        RouterTestingModule.withRoutes(routes),
-        StoreDevToolsModule
-        ],
-      providers: [],
-      declarations: [AppComponent, DashboardComponent, NotFound404Component]
+      imports: [RouterTestingModule],
+      declarations: [AppComponent],
+      providers: [ApiService, provideRoutes([])]
     });
   });
 
-  it('should contain app text', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('should have an url', () => {
+    let fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    expect(fixture.nativeElement).toContainText('Angular Starter App');
-  }));
+    expect(fixture.debugElement.componentInstance.url).toEqual('https://github.com/preboot/angular2-webpack');
+  });
 
 });

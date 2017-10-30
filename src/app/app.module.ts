@@ -1,81 +1,47 @@
-/**
- * This module is the entry for your App when NOT using universal.
- *
- * Make sure to use the 3 constant APP_ imports so you don't have to keep
- * track of your root app dependencies here. Only import directly in this file if
- * there is something that is specific to the environment.
- */
-
-import { ApplicationRef, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule, ApplicationRef } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { RouterModule, PreloadAllModules } from '@angular/router';
-
-import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
-
-import { Store } from '@ngrx/store';
-
-import {
-  BrowserTransferStateModule
-} from '../modules/transfer-state/browser-transfer-state.module';
-
-import { APP_DECLARATIONS } from './app.declarations';
-import { APP_ENTRY_COMPONENTS } from './app.entry-components';
-import { APP_IMPORTS } from './app.imports';
-import { APP_PROVIDERS } from './app.providers';
-
-import { routes } from './app.routing';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ApiService } from './shared';
+import { routing } from './app.routing';
 
-import { AppState } from './reducers';
+import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    HttpModule,
+    FormsModule,
+    routing
+  ],
   declarations: [
     AppComponent,
-    APP_DECLARATIONS
+    HomeComponent,
+    AboutComponent
   ],
-  entryComponents: [APP_ENTRY_COMPONENTS],
-  imports: [
-    CommonModule,
-    DEV_SERVER ? [BrowserAnimationsModule, BrowserTransferStateModule] : [],
-    HttpModule,
-    APP_IMPORTS,
-    RouterModule.forRoot(routes, { useHash: false, preloadingStrategy: PreloadAllModules }),
+  providers: [
+    ApiService
   ],
-  bootstrap: [AppComponent],
-  exports: [AppComponent],
-  providers: [APP_PROVIDERS]
+  bootstrap: [AppComponent]
 })
-
 export class AppModule {
-  constructor(public appRef: ApplicationRef,
-    private _store: Store<AppState>) { }
-
+  constructor(public appRef: ApplicationRef) {}
   hmrOnInit(store) {
-    if (!store || !store.rootState) return;
-
-    // restore state by dispatch a SET_ROOT_STATE action
-    if (store.rootState) {
-      this._store.dispatch({
-        type: 'SET_ROOT_STATE',
-        payload: store.rootState
-      });
-    }
-
-    if ('restoreInputValues' in store) { store.restoreInputValues(); }
-    this.appRef.tick();
-    Object.keys(store).forEach(prop => delete store[prop]);
+    console.log('HMR store', store);
   }
   hmrOnDestroy(store) {
-    const cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
-    this._store.take(1).subscribe(s => store.rootState = s);
+    let cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
+    // recreate elements
     store.disposeOldHosts = createNewHosts(cmpLocation);
-    store.restoreInputValues = createInputTransfer();
+    // remove styles
     removeNgStyles();
   }
   hmrAfterDestroy(store) {
+    // display new elements
     store.disposeOldHosts();
     delete store.disposeOldHosts;
   }

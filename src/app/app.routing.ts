@@ -1,11 +1,11 @@
-/* tslint:disable: max-line-length */
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent } from './features/dashboard.component';
-import { NotFound404Component } from './not-found404.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
-export const routes: Routes = [
-  { path: '', component: DashboardComponent, pathMatch: 'full' },
-  { path: 'lazy', loadChildren: './features/lazy/index#LazyModule' },
-  { path: '**', component: NotFound404Component }
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent}
 ];
+
+export const routing = RouterModule.forRoot(routes);
