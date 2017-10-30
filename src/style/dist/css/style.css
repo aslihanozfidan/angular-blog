@@ -1,83 +1,130 @@
-// component styles are encapsulated and only applied to their components
-* {
-  color: #000;
+@import url('https://fonts.googleapis.com/css?family=Satisfy');
+@import url('https://fonts.googleapis.com/css?family=Sacramento|Satisfy');
+@import url('https://fonts.googleapis.com/css?family=Lobster|Lobster+Two');
+
+body{
+  font-family: arial;
+  font-size: 12px;
+  color:#464646;
+  overflow-x: hidden;
 }
+/*Base*/
+.container-fluid{
+  padding-right:0px!important;
+  padding-left: 0px!important
+}
+
+.row{
+  position: absolute;
+  width:100%;
+  z-index: 999;
+  top:50px;
+  margin:0px;
+  margin-bottom: 20px;
+}
+
+.container-app{
+  width:80%;
+  height: auto;
+  min-height: 500px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.47);
+  -moz-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.47);
+  box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.47);
+
+}
+
+.navbar{
+  background-image: url("../../dist/images/header_image.png")!important;
+  height: 350px;
+}
+  .navbar a{
+    color:#ffffff;
+  }
+
+  .navbar a:hover, .navbar a:focus, .navbar a:active{
+    background-color:transparent!important;
+  }
+
+  .navbar-brand{
+    font-family: 'Satisfy', cursive;
+		font-size: 25px;
+  }
+
 /*  Index*/
 .index-container{
   height: auto;
-  margin-top: -345px;
-  background-color: #fff;
-  border-radius: 3px;
+}
+
   /*Slider*/
   .slider-container{
     padding-top: 10px;
     height: 280px;
     border-bottom:2px solid #260c20;
     position: relative;
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
+  }
     .slider-ex-image{
       height: 95%;
       width: 40%;
       float: left;
-      border-radius: 3px;
     }
-    .slider-title{
-      width:100%;
-      color:#260c20;
-      font-weight: bold;
-      font-size: 14px;
-      margin-bottom: 10px;
-      padding-bottom: 10px;
-      border-bottom:2px solid #260c20;
-    }
+
     .slider-ex-article{
       height: 95%;
       width: 40%;
       float: left;
-      text-align: left;
       padding:10px;
       padding-top:0px;
       position: relative;
       border-right:2px solid #260c20;
     }
-    .continue{
-      position: absolute;
-      bottom: 0px;
-      right:10px;
-      display: block;
-      color:#260c20;
-    }
+      .continue{
+        position: absolute;
+        bottom: 0px;
+        right:10px;
+        display: block;
+        color:#260c20;
+      }
+      .slider-title{
+        width:100%;
+        color:#260c20;
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom:2px solid #260c20;
+      }
+
     .slider-cycle{
       width:20%;
       height: 95%;
       float: left;
       padding-left: 10px;
       overflow-y: scroll;
-      img {
+    }
+      .slider-cycle-image{
         width:100%;
         height: auto;
         margin: auto;
-        border-radius: 3px;
       }
-    }
-  }
+
+  /*Circle*/
   .circle-line{
     margin:auto;
     display: block;
     margin-top: -10px;
   }
-  .choosing-container {
-    min-height: 350px;
-    margin-bottom: 30px;
-    margin-top: 50px;
+  .content-container{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
     .general-title{
-      margin-bottom: 20px;
       font-family: 'Sacramento', cursive;
-      font-size: 26px;
+      font-size: 20px;
       color:#260c20;
       text-align: center;
     }
+
     .category-circle{
       width:30%;
       height: 30%;
@@ -87,37 +134,36 @@
       margin-right: 10%;
       margin-bottom: 10px;
       position: relative;
-      a {
+    }
+      .category-circle a{
         width:100%;
         height: 100%;
         border-radius: 100%;
         display: block;
       }
-      img {
+      .category-circle img{
         width:100%;
         height: 100%;
         border-radius: 100%;
       }
-      .layer{
-        width:100%;
-        height: 100%;
-        border-radius: 100%;
-        position: absolute;
-        background-color: rgba(0,0,0,0.5);
-        span {
+        .layer{
           width:100%;
-          text-align: center;
+          height: 100%;
+          border-radius: 100%;
           position: absolute;
-          bottom:40%;
-          left: 3%;
-          color:#ffffff;
-          font-size:20px;
-          font-family: 'Lobster Two', cursive;
+          background-color: rgba(0,0,0,0.5);
         }
-      }
-    }
-  }
-}
+          .layer span{
+              width:100%;
+              text-align: center;
+              position: absolute;
+              bottom:20%;
+              color:#ffffff;
+              font-size:20px;
+              font-family: 'Lobster Two', cursive;
+            }
+
+
   /*Yazılarım*/
   .yazilarım-category-circle{
     width: 50%;
@@ -188,7 +234,7 @@
       font-weight: normal;
       font-style: italic;
     }
-    .img-slogan{
+    .img-slogan{    
       width:100%;
       height: 250px;
       }
