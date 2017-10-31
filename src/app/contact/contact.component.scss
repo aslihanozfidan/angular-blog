@@ -1,4 +1,4 @@
-.about-container{
+.contact-container{
   height: auto;
   margin-top: -345px;
   padding-bottom: 30px;
@@ -16,7 +16,7 @@
     position: relative;
     .yoda {
       height: 240px;
-      margin-left: calc(50% - 130px);
+      margin-left: calc(50% - 110px);
     }
   }
   .circle-line{
@@ -35,8 +35,12 @@
       color: #260c20;
       text-align: center;
     }
-    article {
-      font-family: 'Montserrat';
+    form {
+      margin: auto;
+    }
+    button {
+      background-color: #43425b;
+      color: #fff;
     }
   }
 }

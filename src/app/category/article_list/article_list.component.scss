@@ -1,0 +1,45 @@
+.content-container {
+  .general-title{
+    margin-bottom: 20px;
+    font-family: 'Sacramento', cursive;
+    font-size: 26px;
+    color: #260c20;
+    text-align: center;
+  }
+  .text-container{
+    padding-top: 10px;
+    height: 250px;
+    margin-bottom: 20px;
+    text-align: left;
+    .text-image{
+      height: 250px;
+      width: 400px;
+      float: left;
+    }
+    .text-article{
+      height: 95%;
+      width: 60%;
+      float: left;
+      padding:10px;
+      padding-top:0px;
+      color: #000;
+      position: relative;
+      .text-title{
+        width:100%;
+        color: #260c20;
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom:2px solid #260c20;
+      }
+      .continue{
+        position: absolute;
+        bottom: 0px;
+        right:10px;
+        display: block;
+        color: #260c20;
+      }
+    }
+  }
+}

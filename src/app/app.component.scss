@@ -4,21 +4,22 @@
 @import url('https://fonts.googleapis.com/css?family=Sacramento|Satisfy');
 @import url('https://fonts.googleapis.com/css?family=Lobster|Lobster+Two');
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+$color-white: #FF0000;
+$color-title: #260c20;
+$color-text: #606060;
 :host {
   display: block;
 }
 
 main {
   padding: 1em;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
   margin-top: 50px;
   display: block;
 }
 body{
-  font-family: arial;
+  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-  color:#464646;
+  color: $color-text;
   overflow-x: hidden;
   padding: 0px;
   margin: 0px;
@@ -52,6 +53,7 @@ header{
       padding: 2%;
       color:#ffffff;
       font-size: 14px;
+      font-weight: bold;
       font-family: 'Montserrat', sans-serif;
       &:hover, &:focus, &:active{
         background-color:transparent!important;
