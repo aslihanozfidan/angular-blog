@@ -47,12 +47,13 @@ body{
 }
 header{
   background-image: url("../../dist/images/header_image.png")!important;
-  height: 350px;
+  background-repeat: no-repeat;
+  height: 355px;
   nav{
     a {
       padding: 2%;
       color:#ffffff;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: bold;
       font-family: 'Montserrat', sans-serif;
       &:hover, &:focus, &:active{
@@ -61,7 +62,7 @@ header{
     }
     .navbar-brand{
       font-family: 'Satisfy', cursive;
-  		font-size: 25px;
+  		font-size: 28px;
     }
   }
 }

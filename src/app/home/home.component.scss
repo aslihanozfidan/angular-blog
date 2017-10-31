@@ -1,23 +1,25 @@
 .index-container{
   height: auto;
-  margin-top: -345px;
+  margin-top: -347px;
   padding-bottom: 30px;
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.1);
   border-radius: 3px;
   -webkit-box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.2);
   -moz-box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.2);
   box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.2);
   /*Slider*/
   .slider-container{
-    padding-top: 10px;
     height: 280px;
+    width: 100%;
+    padding-top: 10px;
     border-bottom:2px solid #260c20;
+    border-top: 2px solid #260c20;
     position: relative;
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
+   // -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  //  filter: grayscale(100%);
     .slider-ex-image{
-      height: 95%;
-      width: 40%;
+      height: 250px;
+      width: 250px;
       float: left;
       border-radius: 3px;
     }
@@ -28,11 +30,10 @@
       font-size: 14px;
       margin-bottom: 10px;
       padding-bottom: 10px;
-      border-bottom:2px solid #260c20;
     }
     .slider-ex-article{
-      height: 95%;
-      width: 40%;
+      height: 250px;
+      width: calc(80% - 250px);
       float: left;
       text-align: left;
       padding:10px;
@@ -62,15 +63,16 @@
       }
     }
   }
-  .circle-line{
+  .circle-line{    
+    height: 60px;
     margin:auto;
     display: block;
-    margin-top: -10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   .choosing-container {
-    min-height: 350px;
-    margin-bottom: 30px;
-    margin-top: 50px;
+    min-height: 280px;
+    padding-top: 15px;
     .general-title{
       margin-bottom: 20px;
       font-family: 'Sacramento', cursive;
@@ -79,37 +81,34 @@
       text-align: center;
     }
     .category-circle{
-      width:30%;
-      height: 30%;
-      border-radius: 30%;
+      width:50%;
+      height: 50%;
       float: left;
-      margin-left: 10%;
-      margin-right: 10%;
-      margin-bottom: 10px;
       position: relative;
       a {
-        width:100%;
-        height: 100%;
-        border-radius: 100%;
+        width: 250px;
+        height: 250px;
+        border-radius: 250px;
         display: block;
+        margin: auto;
       }
       img {
-        width:100%;
-        height: 100%;
-        border-radius: 100%;
+        width: 250px;
+        height: 250px;
+        border-radius: 250px;
       }
       .layer{
-        width:100%;
-        height: 100%;
-        border-radius: 100%;
+        width: 250px;
+        height: 250px;
+        border-radius: 250px;
         position: absolute;
-        background-color: rgba(0,0,0,0.5);
+        box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.2); 
         span {
           width:100%;
           text-align: center;
           position: absolute;
           bottom:40%;
-          left: 3%;
+          left: 2%;
           color:#ffffff;
           font-size:20px;
           font-family: 'Lobster Two', cursive;
