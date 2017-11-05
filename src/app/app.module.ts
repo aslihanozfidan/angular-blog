@@ -11,11 +11,13 @@ import { CategoryComponent } from './category/category.component';
 import { ContactComponent } from './contact/contact.component';
 import { ArticleListComponent } from './category/article_list/article_list.component';
 import { ArticleComponent } from './category/article/article.component';
+import { AddArticleComponent } from './add_article/add_article.component';
 
 import { ApiService } from './shared';
 import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 @NgModule({
   imports: [
@@ -23,7 +25,9 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
     HttpModule,
     FormsModule,
     RouterModule,
-    routing
+    routing,
+    FroalaViewModule.forRoot(),
+    FroalaEditorModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -32,7 +36,8 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
     CategoryComponent,
     ContactComponent,
     ArticleListComponent,
-    ArticleComponent
+    ArticleComponent,
+    AddArticleComponent
   ],
   providers: [
     ApiService
